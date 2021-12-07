@@ -11,5 +11,9 @@ export class User {
   email: string;
   username: string;
   private password: string;
-  tickts: Ticket[];
+  tickets: Ticket[];
+
+  constructor() {
+    
+  }
 }
