@@ -2,13 +2,48 @@
 <div class="register">
   <form class="custom-form" method="post">
     <h1>Register</h1>
-    <input
+  
+    <input 
+      type="name"
+      [(ngModel)]="name"
+      name="name"
+      placeholder="name"
+      required="required"
+    >
+    <input 
+      type="firstName"
+      [(ngModel)]="firstName"
+      firstName="firstName"
+      placeholder="firstName"
+      required="required"
+    >
+    <input 
+      type="lastName"
+      [(ngModel)]="lastName"
+      lastName="lastName"
+      placeholder="lastName"
+      required="required"
+    >
+    <input 
+      type="date"
+      [(ngModel)]="birthday"
+      birthday="birthday"
+      required="required"
+    >
+    <input 
+      type="username"
+      [(ngModel)]="username"
+      username="username"
+      placeholder="username"
+      required="required"
+    >
+    <input 
       type="email"
       [(ngModel)]="email"
       name="email"
-      placeholder="Email"
+      placeholder="email"
       required="required"
-    />
+    >
     <input
       type="password"
       [(ngModel)]="password"
