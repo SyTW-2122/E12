@@ -1,13 +1,17 @@
 @font-face {
-  font-family: 'Coolvetica-Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Coolvetica-Regular'), url('../fonts/coolvetica.woff') format('woff');
+  font-family: Coolvetica;
+  src: url("../fonts/coolvetica_rg.ttf");
 }
+
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
 
 h1 
 {
-font-family: 'Colvetica-Regular';
+font-family: 'Coolvetica';
 font-weight:normal;
 font-style:normal;
 }
