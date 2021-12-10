@@ -1,20 +1,39 @@
-<div class="login">
-  <form class="custom-form" method="post">
-    <h1>Login</h1>
-    <input
-      type="email"
-      [(ngModel)]="email"
-      name="email"
-      placeholder="Email"
-      required="required"
-    />
-    <input
-      type="password"
-      [(ngModel)]="password"
-      name="password"
-      placeholder="Password"
-      required="required"
-    />
-    <button type="submit" (click)="login()">Log in</button>
-  </form>
+<div class="html">
+  <div class="body">
+    <div class="container">
+      <div class="card" id="card">
+        <div class="content">
+          <h1>FEELM</h1>
+          <p class="eslogan">¡Gestiona, valora y reserva tus películas<br>favoritas con Feelm!</p>
+          <p class="register" (click)="slideR()" id="regist">Regístrate</p>
+          <p class="register" (click)="slideI()" id="login" style="display: none;">Iniciar Sesión</p>
+        </div>
+      </div>
+      <div class="login" id="loginClass">
+        <h1>Iniciar Sesión</h1>
+        <form class="form_login">
+          <input type="email" name="email" placeholder="Correo electrónico" required />
+          <input type="password" name="password" placeholder="Contraseña" required />
+        </form>
+        <button type="submit">Iniciar Sesión</button>
+        <p>¿Olvidaste la contraseña?</p>
+      </div>
+      
+      <div class="register" style="display: none;" id="registerClass">
+        <h1>Regístrate</h1>
+        <form class="form_register">
+          <input type="text" name="name" placeholder="Nombre y Apellidos" required />
+          <input type="email" name="email" placeholder="Correo electrónico" required />
+          <input type="password" name="password" placeholder="Contraseña" required />
+
+          <button type="submit">Regístrate</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./login.component.ts"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+  </div>
 </div>

@@ -1,0 +1,212 @@
+@font-face {
+  font-family: 'Coolvetica-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Coolvetica-Regular'), url('../fonts/coolvetica.woff') format('woff');
+}
+
+h1 
+{
+font-family: 'Colvetica-Regular';
+font-weight:normal;
+font-style:normal;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #090909;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.container {
+  background-color: #111;
+  width: 67vw;
+  min-height: 75vh;
+  border-radius: 20px;
+
+  display: grid;
+  grid-template-columns: [first] 50% [second] 50% [end];
+  justify-items: center;
+  box-shadow:  2px 8px 0px rgba(0, 0, 0, 0.123);
+}
+
+/* ESTILO PARA EL LOGIN */
+/* ************************* */
+.login {
+  width: 100%;
+  grid-column-start: second;
+  grid-column-end: end;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+}
+.login h1 {
+  font-size: 2.5rem;
+  margin-top: 10%;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+.login form input {
+  background-color: #090909;
+  align-self: center;
+  margin-bottom: 3%;
+  width: 80%;
+  height: 5.2vh;
+  border: 0;
+  border-radius: 1.5vh;
+  color: rgba(255, 255, 255, 0.692);
+  font-family: 'Roboto';
+  box-shadow:  2px 4px 0px rgba(0, 0, 0, 0.123);
+}
+.login form input::placeholder {
+  padding: 0 7%;
+  font-family: 'Roboto';
+  color: rgba(255, 255, 255, 0.692);
+}
+.login button {
+  width: 80%;
+  height: 5.2vh;
+  border-radius: 1.5vh;
+  border: 0;
+  background-color: #ED1C22;
+  box-shadow:  2px 4px 0px rgba(0, 0, 0, 0.123);
+
+  align-self: center;
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: 'Roboto';
+  cursor: pointer;
+  margin-top: 30vh;
+}
+.login p {
+  font-size: 1rem;
+  font-family: 'Roboto';
+  margin-top: 3vh;
+  color: #fff;
+  cursor: pointer;
+}
+/* ************************* */
+
+/* ESTILO PARA EL REGISTRO */
+/* ************************* */
+.register {
+  width: 100%;
+  grid-column-start: second;
+  grid-column-end: end;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+}
+.register h1 {
+  font-size: 2.5rem;
+  margin-top: -27vh;
+}
+.register form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+.register form input {
+  background-color: #090909;
+  align-self: center;
+  margin-bottom: 3%;
+  width: 80%;
+  height: 5.2vh;
+  border: 0;
+  border-radius: 1.5vh;
+  color: rgba(255, 255, 255, 0.692);
+  font-family: 'Roboto';
+}
+.register form input::placeholder {
+  padding: 0 7%;
+  font-family: 'Roboto';
+  color: rgba(255, 255, 255, 0.692);
+}
+.register button {
+  width: 80%;
+  height: 5.2vh;
+  border-radius: 1.5vh;
+  border: 0;
+  background-color: #ED1C22;
+  font-family: 'Roboto';
+
+  align-self: center;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-top: 22vh;
+}
+/* ************************* */
+
+
+/* ESTILO PARA LA TARJETA */
+/* ************************* */
+.card {
+  background-color: #ED1C22;
+  width: 100%;
+  grid-column-start: first;
+  grid-column-end: second;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.4);
+}
+.card h1 {
+  font-size: 7rem;
+  margin-top: 15.5%;
+  text-shadow: 0.1rem 0.3rem 0.2rem rgba(0, 0, 0, 0.281);
+}
+.eslogan {
+  font-family: 'Roboto';
+  font-size: 1.3rem;
+  align-self: center;
+  margin-top: -4vh;
+}
+.register {
+  margin-top: 32vh;
+  font-family: 'Roboto';
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.cardAnimation {
+  background-color: #ED1C22;
+  width: 100%;
+  grid-column-start: first;
+  grid-column-end: second;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  animation: slide 3s ease;
+}
+.cardAnimation h1 {
+  font-size: 7rem;
+  margin-top: 15.5%;
+  text-shadow: 0.1rem 0.3rem 0.2rem rgba(0,0,0,0.4);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  70% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -4,12 +4,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "forceConsistentCasingInFileNames": false,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -21,13 +21,17 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ], 
+    "noImplicitAny": false,                       /* Raise error on expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": false     
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "strictPropertyInitialization": false
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,                       /* Raise error on expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": false
   }
 }
