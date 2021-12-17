@@ -2,6 +2,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+import { AuthenticationService } from '../_services/authentication.service';
+import { first } from 'rxjs';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +13,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
       this.formLogin = this.formBuilder.group({
@@ -19,8 +25,20 @@ export class LoginComponent implements OnInit {
       })
   }
 
+  get formControls() {
+    return this.formLogin.controls
+  }
+
   onSubmit(): void {
-    console.log("hola")
+    this.authenticationService.login(this.formControls['email'].value, this.formControls['password'].value)
+    .pipe(first())
+    .subscribe(
+      data => {
+          this.router.navigate(['/home']);
+      },
+      error => {
+          console.log("Error")
+      });
   }
 
 

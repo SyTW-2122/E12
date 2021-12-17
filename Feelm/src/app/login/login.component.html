@@ -15,7 +15,7 @@
           <input type="email" name="email" formControlName="email" placeholder="Correo electrónico" required />
           <input type="password" name="password" formControlName="password" placeholder="Contraseña" required />
         </form>
-        <button type="submit" (click)="onSubmit()" >Iniciar Sesión</button>
+        <button type="submit" (click)="onSubmit()" [disabled]="formLogin.invalid" >Iniciar Sesión</button>
         <p>¿Olvidaste la contraseña?</p>
       </div>
       
