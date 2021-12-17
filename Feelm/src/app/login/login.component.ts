@@ -1,3 +1,5 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,22 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
+  public formLogin: FormGroup;
+  constructor(private formBuilder: FormBuilder) {}
 
-  constructor() {}
+  ngOnInit(): void {
+      this.formLogin = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required]
+      })
+  }
+
+  onSubmit(): void {
+    console.log("hola")
+  }
+
 
   slideR() {
     slide1();
   }
-
   slideI() {
     slide2();
   }
-
-  ngOnInit(): void {
-  }
 }
+
+
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -32,7 +42,7 @@ const slide1 = async () => {
   await delay(2000);
   document.getElementById("registerClass").style.display = "block";
   document.getElementById("loginClass").style.display = "none";
-  await delay(1200);
+  await delay(1000);
   document.getElementById("card").className = "card";
   document.getElementById("regist").style.display = "none";
   document.getElementById("login").style.display = "block";
@@ -43,7 +53,7 @@ const slide2 = async () => {
   await delay(2000);
   document.getElementById("registerClass").style.display = "none";
   document.getElementById("loginClass").style.display = "block";
-  await delay(1200);
+  await delay(1000);
   document.getElementById("card").className = "card";
   document.getElementById("login").style.display = "none";
   document.getElementById("regist").style.display = "block";

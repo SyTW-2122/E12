@@ -4,14 +4,12 @@ import { Ticket } from "./ticket";
 
 export class User {
   id: number;
-  name: string;
-  fistName: string;
+  firstName: string;
   lastName: string;
-  age: number;
   email: string;
-  username: string;
-  private password: string;
-  tickets: Ticket[];
+  token?: string;
+  password: string;
+  tickets?: Ticket[];
 
   constructor() {
     
