@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthenticationService } from '../_services/authentication.service';
 import { first } from 'rxjs';
+import { useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     return this.formLogin.controls
   }
 
-  onSubmit(): void {
+  onSubmit(): string | any {
     this.authenticationService.login(this.formControls['email'].value, this.formControls['password'].value)
     .pipe(first())
     .subscribe(
@@ -40,8 +41,8 @@ export class LoginComponent implements OnInit {
       error => {
           console.log("Error")
       });
+      return "test@test.es"
   }
-
 
   slideR() {
     slide1();
