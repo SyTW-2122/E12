@@ -3,6 +3,7 @@ import { first } from 'rxjs/operators';
 
 import { User } from '../_models/user';
 import { UserService } from '../_services/user.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({ 
     selector: 'app-home',
@@ -12,15 +13,12 @@ import { UserService } from '../_services/user.service';
 
 export class HomeComponent {
     loading = false;
-    users: User[];
+    user = '';
 
-    constructor(private userService: UserService) { }
+    constructor(private userService: UserService, private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.loading = false;
-            this.users = users;
-        });
+        this.user = this.authenticationService.currentUserValue.email
     }
 }

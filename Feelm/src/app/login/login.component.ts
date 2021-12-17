@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
+          let userEmail = this.authenticationService.currentUserValue.email
           this.router.navigate(['/home']);
       },
       error => {
