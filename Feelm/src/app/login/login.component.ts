@@ -14,16 +14,30 @@ import { useAnimation } from '@angular/animations';
 
 export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
-              private router: Router,
-              private authenticationService: AuthenticationService) {}
+  error = '';
+  returnUrl: string;
+  submitted = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService
+    ) {
+      // redirect to home if already logged in
+      if (this.authenticationService.currentUserValue) { 
+        this.router.navigate(['/home']);
+      }
+    }
+
 
   ngOnInit(): void {
       this.formLogin = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required]
       })
+
+      // get return url from route parameters or default to '/'
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home'
   }
 
   get formControls() {
@@ -31,18 +45,22 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): string | any {
+    this.submitted = true;
     this.authenticationService.login(this.formControls['email'].value, this.formControls['password'].value)
     .pipe(first())
     .subscribe(
       data => {
           let userEmail = this.authenticationService.currentUserValue.email
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
+          this.router.navigate([this.returnUrl]);
       },
       error => {
+          this.error = error
           console.log("Error")
       });
       return "test@test.es"
   }
+
 
   slideR() {
     slide1();
