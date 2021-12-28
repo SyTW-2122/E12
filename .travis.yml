@@ -11,5 +11,6 @@ addons:
   chrome: stable
 
 script:
+  - cd Feelm
   - npm run test
   - npm run build
