@@ -12,14 +12,14 @@
       <div class="login" id="loginClass">
         <h1>Iniciar Sesión</h1>
         <form [formGroup]="formLogin" class="form_login">
-          <input type="email" name="email" formControlName="email" placeholder="Correo electrónico" required />
+          <input type="email" name="email" [(ngModel)] = "user.email" formControlName="email" placeholder="Correo electrónico" required />
           <div *ngIf="submitted && formControls['email'].errors" class="invalid-feedback">
             <div *ngIf="formControls['email'].errors.required">email is required</div>
           </div>
-          <input type="password" name="password" formControlName="password" placeholder="Contraseña" required />
+          <input type="password" name="password" [(ngModel)] = "user.password" formControlName="password" placeholder="Contraseña" required />
         </form>
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-        <button type="submit" (click)="onSubmit()" [disabled]="formLogin.invalid" >Iniciar Sesión</button>
+        <button type="submit" (click)="validateLogin()" [disabled]="formLogin.invalid" >Iniciar Sesión</button>
         <p>¿Olvidaste la contraseña?</p>
       </div>
       

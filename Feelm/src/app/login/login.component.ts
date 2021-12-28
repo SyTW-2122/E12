@@ -5,14 +5,18 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
 import { first } from 'rxjs';
 import { useAnimation } from '@angular/animations';
+import { LoginService } from '../_services/login.service';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ LoginService ]
 })
 
 export class LoginComponent implements OnInit {
+  public user : User;
   public formLogin: FormGroup;
   error = '';
   returnUrl: string;
@@ -21,10 +25,12 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private loginService: LoginService
     ) {
+      this.user = new User();
       // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) { 
+      if (this.loginService.currentUserValue) { 
         this.router.navigate(['/home']);
       }
     }
@@ -59,6 +65,23 @@ export class LoginComponent implements OnInit {
           console.log("Error")
       });
       return "test@test.es"
+  }
+
+  validateLogin() {
+    if(this.user.email && this.user.password) {
+      this.loginService.validateLogin(this.user).subscribe(result => {
+      console.log('result is ', result);
+      if(result['status'] === 'success') {
+        this.router.navigate([this.returnUrl]);
+      } else {
+        alert('Wrong username password');
+      }
+    }, error => {
+      console.log('error is ', error);
+    });
+    } else {
+      alert('enter user name and password');
+    }
   }
 
 

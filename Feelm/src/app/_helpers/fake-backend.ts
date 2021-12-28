@@ -3,9 +3,9 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-import { User } from '../_models/user';
+import { User, User1 } from '../_models/user';
 
-const users: User[] = [{ id: 1, firstName: 'Test', lastName: 'User', email: 'test@test.es', password: 'test' },
+const users: User1[] = [{ id: 1, firstName: 'Test', lastName: 'User', email: 'test@test.es', password: 'test' },
                        { id: 2, firstName: 'Adrián', lastName: 'Hernández', email: 'alu0101235516@ull.edu.es', password: '1234' },
                        { id: 3, firstName: 'Sergio', lastName: 'Benitez', email: 'alu0101244440@ull.edu.es', password: '1234' },
                        { id: 4, firstName: 'Raúl', lastName: 'Martín', email: 'alu0101203003@ull.edu.es', password: '1234' }];
