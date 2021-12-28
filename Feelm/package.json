@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "coverage": "nyc ng test",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config src/proxy.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
