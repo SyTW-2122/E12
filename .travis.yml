@@ -9,9 +9,11 @@ cache:
 
 addons:
   chrome: stable
-
+  
+install:
+  - npm install
+  
 script:
   - cd Feelm
-  - npm install
   - npm run test
   - npm run build
