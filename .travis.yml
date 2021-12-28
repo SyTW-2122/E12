@@ -12,6 +12,7 @@ addons:
   
 install:
   - npm install -g @angular/cli@latest
+  - npm install n -g
   
 script:
   - cd Feelm
