@@ -5,14 +5,15 @@ dist: trusty
 
 cache:
   directories:
-    - node_modules
+    - Feelm/node_modules
 
 addons:
   chrome: stable
   
 install:
   - npm install -g @angular/cli@latest
-  - npm install n latest
+  - npm install n -g
+  - n latest
   
 script:
   - cd Feelm
