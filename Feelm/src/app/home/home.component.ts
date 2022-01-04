@@ -5,6 +5,7 @@ import { User } from '../_models/user';
 import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../_services/login.service';
 
 @Component({ 
     selector: 'app-home',
@@ -19,12 +20,13 @@ export class HomeComponent {
     constructor(
         private userService: UserService, 
         private authenticationService: AuthenticationService,
-        private router: Router
+        private router: Router,
         ) { }
 
     ngOnInit() {
         this.loading = true;
         this.user = this.authenticationService.currentUserValue.email
+        
     }
 
     logout() {
