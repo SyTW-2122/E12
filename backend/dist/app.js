@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //     const db = client.db(dbName);
 //     return db.collection<UserInterface>('user').insertOne({
 //         name: 'test',
-//         email: 'test@test.com',
+//         email: 'test@test.es',
 //         password: 'test',
 //     });
 //   }).then((result) => {

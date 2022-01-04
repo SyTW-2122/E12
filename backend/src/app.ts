@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended : false}))
   
 //     return db.collection<UserInterface>('user').insertOne({
 //         name: 'test',
-//         email: 'test@test.com',
+//         email: 'test@test.es',
 //         password: 'test',
 //     });
 //   }).then((result) => {
