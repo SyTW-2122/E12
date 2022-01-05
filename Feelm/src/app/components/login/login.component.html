@@ -25,12 +25,12 @@
       
       <div class="register" style="display: none;" id="registerClass">
         <h1>Regístrate</h1>
-        <form class="form_register">
-          <input type="text" name="name" placeholder="Nombre y Apellidos" required />
-          <input type="email" name="email" placeholder="Correo electrónico" required />
-          <input type="password" name="password" placeholder="Contraseña" required />
+        <form [formGroup]="formRegister" class="form_register">
+          <input type="text" name="name" [(ngModel)] = "userRegister.name" formControlName="name" placeholder="Nombre y Apellidos" required />
+          <input type="email" name="email" [(ngModel)] = "userRegister.email" formControlName="email" placeholder="Correo electrónico" required />
+          <input type="password" name="password" [(ngModel)] = "userRegister.password" formControlName="password" placeholder="Contraseña" required />
 
-          <button type="submit">Regístrate</button>
+          <button type="submit" (click)="validateRegister()">Regístrate</button>
         </form>
       </div>
     </div>

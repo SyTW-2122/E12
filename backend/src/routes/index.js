@@ -3,15 +3,16 @@ const jwt = require('jsonwebtoken')
 
 const router = Router();
 
-const User = require('../models/user')
+const User = require('../models/user');
+const userRegister = require('../models/userRegister');
 
 router.get('/', (req, res) => res.send('Hello world'));
 
 // Rutas para hacer un registro o un inicio de sesión
 router.post('/signup', async (req, res) => {
   // Guardamos el usuario dentro de la base de datos
-  const { email, password } = req.body
-  const newUser = new User({email, password});
+  const { name, email, password } = req.body
+  const newUser = new userRegister({name, email, password});
   await newUser.save();
   
   // Creamos un token para el usuario

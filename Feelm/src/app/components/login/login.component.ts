@@ -2,11 +2,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { AuthenticationService } from '../_services/authentication.service';
+import { AuthenticationService } from '../../_services/authentication.service';
 import { first } from 'rxjs';
 import { useAnimation } from '@angular/animations';
-import { LoginService } from '../_services/login.service';
-import { User } from '../_models/user';
+import { LoginService } from '../../_services/login.service';
+import { User, UserRegister } from '../../_models/user';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,13 @@ import { User } from '../_models/user';
 })
 
 export class LoginComponent implements OnInit {
+
   public user : User;
   public formLogin: FormGroup;
+
+  public userRegister: UserRegister;
+  public formRegister: FormGroup;
+
   error = '';
   returnUrl: string;
   submitted = false;
@@ -26,9 +32,11 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private authService: AuthService
     ) {
       this.user = new User();
+      this.userRegister = new UserRegister();
       // redirect to home if already logged in
       if (this.loginService.currentUserValue) { 
         this.router.navigate(['/home']);
@@ -38,6 +46,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
       this.formLogin = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required]
+      })
+
+      this.formRegister = this.formBuilder.group({
+        name: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required]
       })
@@ -82,6 +96,17 @@ export class LoginComponent implements OnInit {
     } else {
       alert('enter user name and password');
     }
+  }
+
+  validateRegister(){
+    this.authService.register(this.userRegister)
+      .subscribe(
+        res => {
+          console.log(this.userRegister)
+          console.log(res)
+        },
+        err => console.log(err)
+      )
   }
 
 
