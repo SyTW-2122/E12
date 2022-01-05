@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '../_models/user';
-import { UserService } from '../_services/user.service';
-import { AuthenticationService } from '../_services/authentication.service';
+import { User } from '../../_models/user';
+import { UserService } from '../../_services/user.service';
+import { AuthenticationService } from '../../_services/authentication.service';
 import { Router } from '@angular/router';
-import { LoginService } from '../_services/login.service';
+import { LoginService } from '../../_services/login.service';
 
 @Component({ 
     selector: 'app-home',
