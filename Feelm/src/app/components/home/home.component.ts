@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '../../_models/user';
-import { UserService } from '../../_services/user.service';
-import { AuthenticationService } from '../../_services/authentication.service';
+
 import { Router } from '@angular/router';
-import { LoginService } from '../../_services/login.service';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({ 
     selector: 'app-home',
@@ -18,19 +16,14 @@ export class HomeComponent {
     user = '';
 
     constructor(
-        private userService: UserService, 
-        private authenticationService: AuthenticationService,
-        private router: Router,
-        ) { }
+        private authService: AuthService
+    ) { }
 
     ngOnInit() {
-        this.loading = true;
-        this.user = this.authenticationService.currentUserValue.email
-        
+        this.loading = true; 
     }
 
     logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['/login']);
+        this.authService.logout()
     }
 }

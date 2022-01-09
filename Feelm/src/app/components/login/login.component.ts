@@ -2,18 +2,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { AuthenticationService } from '../../_services/authentication.service';
-import { first } from 'rxjs';
-import { useAnimation } from '@angular/animations';
-import { LoginService } from '../../_services/login.service';
+
 import { User, UserRegister } from '../../_models/user';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [ LoginService ]
+  styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
@@ -29,18 +25,12 @@ export class LoginComponent implements OnInit {
   submitted = false;
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private loginService: LoginService,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute,
     ) {
       this.user = new User();
       this.userRegister = new UserRegister();
-      // redirect to home if already logged in
-      if (this.loginService.currentUserValue) { 
-        this.router.navigate(['/home']);
-      }
     }
 
 
@@ -56,54 +46,39 @@ export class LoginComponent implements OnInit {
         password: ['', Validators.required]
       })
 
-      // get return url from route parameters or default to '/'
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home'
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home'
   }
 
   get formControls() {
     return this.formLogin.controls
   }
 
-  onSubmit(): string | any {
-    this.submitted = true;
-    this.authenticationService.login(this.formControls['email'].value, this.formControls['password'].value)
-    .pipe(first())
-    .subscribe(
-      data => {
-          let userEmail = this.authenticationService.currentUserValue.email
-          // this.router.navigate(['/home']);
-          this.router.navigate([this.returnUrl]);
-      },
-      error => {
-          this.error = error
-          console.log("Error")
-      });
-      return "test@test.es"
+  get formControlsRegister() {
+    return this.formRegister.controls
   }
 
+
   validateLogin() {
-    if(this.user.email && this.user.password) {
-      this.loginService.validateLogin(this.user).subscribe(result => {
-      console.log('result is ', result);
-      if(result['status'] === 'success') {
-        this.router.navigate([this.returnUrl]);
-      } else {
-        alert('Wrong username password');
-      }
-    }, error => {
-      console.log('error is ', error);
-    });
-    } else {
-      alert('enter user name and password');
-    }
+    this.authService.login(this.user)
+      .subscribe(
+        res => {
+          console.log(res)
+          localStorage.setItem('token', res.token);
+          this.router.navigate(['/home']);
+        }, 
+        err => console.log(err)
+      )
   }
 
   validateRegister(){
     this.authService.register(this.userRegister)
       .subscribe(
         res => {
-          console.log(this.userRegister)
           console.log(res)
+          // Nos permite crear un token de usuario en toda la sesión
+          localStorage.setItem('token', res.token)
+          this.router.navigate(['/home'])
         },
         err => console.log(err)
       )

@@ -25,7 +25,7 @@ router.post('/signin', async (req, res) => {
   // Reccibimos el usuario a logear
   const { email, password } = req.body
   // Buscamos el email en la base de datos
-  const user = await User.findOne({email});
+  const user = await userRegister.findOne({email});
   
   if (!user) return res.status(401).send("The email doesn't exists");
   if (user.password != password) return res.status(401).send('Wrong Password');
