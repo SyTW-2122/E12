@@ -12,6 +12,9 @@ router.get('/', (req, res) => res.send('Hello world'));
 router.post('/signup', async (req, res) => {
   // Guardamos el usuario dentro de la base de datos
   const { name, email, password } = req.body
+  const user = await userRegister.findOne({email});
+  if (user) return res.status(401).send("The email already exist");
+  
   const newUser = new userRegister({name, email, password});
   await newUser.save();
   
