@@ -3,20 +3,16 @@ node_js:
   - "8"
 dist: trusty
 
+sudo: false
+
 cache:
   directories:
-    - Feelm/node_modules
+    - node_modules
 
 addons:
   chrome: stable
-  
-install:
-  - npm install
-  - nvm install v16.10.0
-  - npm install -g @angular/cli@latest
-  - npm install --save-dev @angular-devkit/build-angular
-  
+
 script:
-  - cd Feelm
+  - cd backend
   - npm run test
-  - npm run build
+
