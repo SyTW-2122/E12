@@ -6,7 +6,7 @@ const router = Router();
 const User = require('../models/user');
 const userRegister = require('../models/userRegister');
 
-router.get('/', (req, res) => res.send('Hello world'));
+// router.get('/', (req, res) => res.send('Hello world'));
 
 // Rutas para hacer un registro o un inicio de sesión
 router.post('/signup', async (req, res) => {
