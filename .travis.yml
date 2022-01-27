@@ -12,4 +12,5 @@ addons:
   chrome: stable
 
 script:
+  - cd backend
   - npm run test
