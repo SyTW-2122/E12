@@ -1,29 +1,19 @@
-import { Component } from '@angular/core';
-import { first } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
 
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/_services/auth.service';
+  constructor() { }
 
-@Component({ 
-    selector: 'app-home',
-    templateUrl: 'home.component.html',    
-    styleUrls: ['./home.component.css'] 
-    })
+  ngOnInit(): void {
+  }
 
-export class HomeComponent {
-    loading = false;
-    user = '';
+  videoChange(name) {
+    document.getElementById("slider").setAttribute('src', name)
+  }
 
-    constructor(
-        private authService: AuthService
-    ) { }
-
-    ngOnInit() {
-        this.loading = true; 
-    }
-
-    logout() {
-        this.authService.logout()
-    }
 }

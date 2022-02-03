@@ -6,19 +6,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { HomeComponent } from './components/home/home.component';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './_helpers/auth.guard';
 import { TokenInterceptorService } from './_services/token-interceptor.service';
 import { BillboardComponent } from './components/billboard/billboard.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     BillboardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

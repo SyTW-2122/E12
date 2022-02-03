@@ -22,13 +22,27 @@ html {
   }
 }
 
-body {
-  margin: 0;
+/* body {
+  background-color: #090909;
+  /* margin: 0;
   padding: 0;
   height: 100vh;
+  width: 100%;
   background-color: #090909;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: hidden;
+  overflow-y: hidden; */
+ /* */
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.989583) 57.81%, rgba(17, 17, 17, 0.989583) 63.02%, rgba(87, 33, 35, 0.990625) 99.99%, #99191D 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }

@@ -1,74 +1,73 @@
-<div class="html">
-  <div class="body">
-    <div class="cabecero">
-      <div class="logo">
+<div class="body">
+  <div class="cabecero">
+    <div class="logo">
+      <img
+        src="../../../assets/images/Logo.svg"
+        alt="Feelm Logo" />
+    </div>
+    <div class="tickets">
+      <div class="cesta">
         <img
-          src="src/Logo.svg"
-          alt="Feelm Logo" />
+        src="../../../assets/images/Icono_tickets.svg"
+        alt="tickets icon"
+        height="100"
+        width="100" />
       </div>
-      <div class="tickets">
-        <div class="cesta">
-          <img
-          src="src/Icono_tickets.svg"
-          alt="tickets icon"
-          height="100"
-          width="100" />
-        </div>
-        <div class="cartelera">
-          <img
-          src="src/recomendador.svg"
-          alt="recomendador" />
-        </div>
+      <div class="cartelera">
+        <img
+        src="../../../assets/images/recomendador.svg"
+        alt="recomendador" />
       </div>
     </div>
-    
-    <div class="slider" data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
-      <div class="fle_izq"></div>
-      <div class="centro">
-        <div class="titulo_centro">Nuevo estreno</div>
-        <div class="video_in">
-          <video id="slider" autoplay muted loop>
-            <source src="./src/slide/venom.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <div class="fle_der"></div>
-    </div>
-    <div class="navBar">
-      <div class="navigate">
-        <img onclick="videoChange('./src/slide/joker.mp4')" src ="./src/slide/jokerP.PNG" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
-        <img onclick="videoChange('./src/slide/venom.mp4')" src ="./src/slide/venomP.PNG" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-        <img onclick="videoChange('./src/slide/warren.mp4')" src ="./src/slide/expedienteP.PNG" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800">
-        <img onclick="videoChange('./src/slide/midsommar.mp4')" src ="./src/slide/midsommarP.PNG" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800">
-      </div>
-    </div>
+  </div>
 
-    <div class="taquilla">
+  <div class="slider aos-init aos-animate" data-aos="fade-left" data-aos-delay="500" data-aos-duration="800">
+    <div class="fle_izq"></div>
+    <div class="centro">
+      <div class="titulo_centro">Nuevo estreno</div>
+      <div class="video_in">
+        <video id="slider" autoplay muted loop>
+          <source src="../../../assets/videos/venom.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div> 
+    <div class="fle_der"></div>
+  </div>
+
+  <div class="navBar">
+    <div class="navigate">
+      <img (click)="videoChange('../../../assets/videos/joker.mp4')" src ="../../../assets/images/jokerP.PNG" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" class="aos-init aos-animate">
+      <img (click)="videoChange('../../../assets/videos/venom.mp4')" src ="../../../assets/images/venomP.PNG" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800" class="aos-init aos-animate">
+      <img (click)="videoChange('../../../assets/videos/warren.mp4')" src ="../../../assets/images/expedienteP.PNG" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800" class="aos-init aos-animate">
+      <img (click)="videoChange('../../../assets/videos/midsommar.mp4')" src ="../../../assets/images/midsommarP.PNG" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" class="aos-init aos-animate">
+    </div>
+  </div>
+
+  <div class="taquilla">
     <div class="separador">
-      <div class="tituloTaquilla" data-aos="fade-down" data-aos-delay="500" data-aos-duration="800"> Películas más taquilleras</div>
+      <div class="tituloTaquilla aos-init aos-animate" data-aos="fade-down" data-aos-delay="500" data-aos-duration="800"> Películas más taquilleras</div>
       <div class="lineaSeparadora">
-        <hr width="40%" size="2" color="#fff" data-aos="fade" data-aos-delay="800" data-aos-duration="1000">>
+        <hr width="40%" size="2" color="#fff" data-aos="fade" data-aos-delay="800" data-aos-duration="1000" class="aos-init aos-animate">
       </div>
     </div>
     <div class="grid_layout">
-      <div class="pelicula" id="pelicula_1" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
-        <img src ="./src/slide/venomC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+      <div class="pelicula aos-init aos-animate" id="pelicula_1" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
+       <img src ="../../../assets/images/venomC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" class="aos-init aos-animate">
       </div>
-      <div class="pelicula" id="pelicula_2" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
-        <img src ="./src/slide/warrenC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+      <div class="pelicula aos-init aos-animate" id="pelicula_2" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
+       <img src ="../../../assets/images/warrenC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" class="aos-init aos-animate">
       </div>
-      <div class="pelicula" id="pelicula_3" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
-        <img src ="./src/slide/midsommarC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
+      <div class="pelicula aos-init aos-animate" id="pelicula_3" data-aos="fade" data-aos-delay="800" data-aos-duration="800">
+       <img src ="../../../assets/images/midsommarC.jpg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" class="aos-init aos-animate">
       </div>
-      <div class="textPeli" id="text_p1" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Venom</div>
-      <div class="textPeli" id="text_p2" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Expediente Warren</div>
-      <div class="textPeli" id="text_p3" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Midsommar</div>
+      <div class="textPeli aos-init aos-animate" id="text_p1" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Venom</div>
+      <div class="textPeli aos-init aos-animate" id="text_p2" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Expediente Warren</div>
+      <div class="textPeli aos-init aos-animate" id="text_p3" data-aos="fade" data-aos-delay="750" data-aos-duration="800">Midsommar</div>
     </div>
-    </div>
+   </div>
 
-    <link rel="stylesheet" type="text/css" href="./home.component.css" />
-    <script type="text/javascript" src="./script.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>AOS.init();</script>  
-  </div>
+   <!-- <script type="text/javascript" src="./script.js"></script> -->
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   <script>AOS.init();</script>  
 </div>
+
