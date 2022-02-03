@@ -11,12 +11,14 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './_helpers/auth.guard';
 import { TokenInterceptorService } from './_services/token-interceptor.service';
+import { BillboardComponent } from './components/billboard/billboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BillboardComponent,
   ],
   imports: [
     BrowserModule,
