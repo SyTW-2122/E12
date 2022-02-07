@@ -13,6 +13,7 @@ import { AuthGuard } from './_helpers/auth.guard';
 import { TokenInterceptorService } from './_services/token-interceptor.service';
 import { BillboardComponent } from './components/billboard/billboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { FilmSketchComponent } from './components/film-sketch/film-sketch.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     BillboardComponent,
     HomeComponent,
+    FilmSketchComponent,
   ],
   imports: [
     BrowserModule,

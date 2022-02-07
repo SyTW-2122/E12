@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const router = Router();
 
 const User = require('../models/user');
+const Film = require('../models/film')
 const userRegister = require('../models/userRegister');
 
 // router.get('/', (req, res) => res.send('Hello world'));
@@ -40,19 +41,9 @@ router.post('/signin', async (req, res) => {
 });
 
 // Ruta para mostrar las películas disponibles en cartelera
-router.get('/films', (req, res) => {
-  res.json([
-    {
-      _id: '1',
-      name: 'Spiderman',
-      description: "Hombre araña"
-    }, 
-    {
-      _id: '2',
-      name: 'Fast and Furious',
-      description: "A todo gas"
-    },
-  ])
+router.get('/cartelera', async (req, res) => {
+  let films = await Film.find();
+  res.send(films);
 });
 
 // Ruta privada donde solo podrá entrar el usuario a ver sus tickets

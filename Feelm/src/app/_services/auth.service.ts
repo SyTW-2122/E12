@@ -21,6 +21,10 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/signup', user);
   }
 
+  cartel() {
+    return this.http.get(this.URL + '/cartelera');
+  }
+
   login(user) {
     return this.http.post<any>(this.URL + '/signin', user);
   }
@@ -36,5 +40,9 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/navigate']);
+  }
+
+  cartelera() {
+    return this.http.get(this.URL + 'cartelera');
   }
 }
