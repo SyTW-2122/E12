@@ -14,6 +14,7 @@ import { TokenInterceptorService } from './_services/token-interceptor.service';
 import { BillboardComponent } from './components/billboard/billboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { FilmSketchComponent } from './components/film-sketch/film-sketch.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FilmSketchComponent } from './components/film-sketch/film-sketch.compon
     BillboardComponent,
     HomeComponent,
     FilmSketchComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
