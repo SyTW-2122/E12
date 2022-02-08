@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
 
 
   validateLogin() {
+ 
     this.authService.login(this.user)
       .subscribe(
         res => {

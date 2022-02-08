@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-profile',
@@ -14,16 +15,20 @@ export class ProfileComponent implements OnInit {
   sala: string = '';
   hora: string = '';
   dia: string = '';
-  constructor(private authService: AuthService) { }
-    ticketFinal: string = '';
+  ticketFinal: string = '';
+  username: string = 'alu0101244440';
+  email: string = 'alu0101244440@ull.edu.es';
+  constructor(private authService: AuthService) {
+  }
+    
 
   ngOnInit(): void {
     this.authService.tickets().subscribe(
       res => {
-        console.log(res)
+        // console.log(res)
         let ticketsC = Object.values(res);
         let ticket = '';
-        console.log(ticketsC)
+        // console.log(ticketsC)
         ticket = ticket + '<h2>MIS TICKETS</h2>';
         ticket = ticket + '<hr class="linea" width="70%" size="2" color="#fff"/>';
         
@@ -34,14 +39,27 @@ export class ProfileComponent implements OnInit {
             ticket = ticket + '<div class="salaYhora">'+ ticketN.sala + ticketN.hora + '</div>';
             ticket = ticket + '<div class="diaPelicula">' + ticketN.dia + '</div>';
             ticket = ticket + '</div>';
-            ticket = ticket + '<div class="cancelarReserva"><button type="submit">Cancelar</button></div>';
+            ticket = ticket + '<div class="cancelarReserva">';
+            ticket = ticket + '<button type="submit" (click)="deleteTicket('+ ticketN.name +')">Cancelar</button>'
+            ticket = ticket + '</div>'
             ticket = ticket + '</div>';
         })
-        console.log(ticket)
+       
         this.ticketFinal = ticket;
       },
       err => console.log(err)
     )
+  }
+
+  deleteTicket(name) {
+    console.log("name")
+    this.authService.deleteTickets(name)
+      .subscribe(
+        res => {
+          console.log(res)
+        },
+        err => console.log(err)
+      )
   }
 
   logout() {

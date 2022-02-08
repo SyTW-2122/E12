@@ -48,6 +48,8 @@ export class FilmSketchComponent implements OnInit {
     )
   }
 
+
+
   postTicket(){
     this.newTicket.name = this.tituloN
     this.newTicket.sala = "SALA 4"

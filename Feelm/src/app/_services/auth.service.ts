@@ -39,6 +39,13 @@ export class AuthService {
     return this.http.post<any>(this.URL + '/perfil', ticket)
   }
 
+  deleteTickets(nameticket) {
+    console.log(nameticket)
+    return this.http.post<any>(this.URL + '/perfil', nameticket)
+  }
+
+
+
   loggedIn(): Boolean {
     return !!localStorage.getItem('token');
   }

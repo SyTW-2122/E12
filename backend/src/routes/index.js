@@ -33,6 +33,12 @@ router.post('/perfil', async (req, res) => {
   await newTicket.save();
 });
 
+router.delete('/perfil', async (req, res) => {
+  const {name} = req.body
+
+  await Tickets.deleteOne({name});
+});
+
 router.post('/signin', async (req, res) => {
   // Reccibimos el usuario a logear
   const { email, password } = req.body

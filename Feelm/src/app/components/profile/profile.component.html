@@ -25,8 +25,8 @@
     <div class="datosPersonales">
       <h2>DATOS PERSONALES</h2>
       <hr class="linea" width="70%" size="2" color="#fff"/>
-      <div class="nombre" id="box-data">NOMBRE: {{user}}</div>
-      <div class="correo" id="box-data">CORREO: {{user}}</div>
+      <div class="nombre" id="box-data">NOMBRE: {{username}}</div>
+      <div class="correo" id="box-data">CORREO: {{email}}</div>
       <div class="logout" id="box-data"><a (click)="logout()">Cerrar Sesión</a></div>
     </div>
     <div class="reservas" [innerHTML] = "ticketFinal">
