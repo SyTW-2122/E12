@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-
   // URL de la api (backend)
   private URL = "http://localhost:3000/api"
 
@@ -28,8 +27,16 @@ export class AuthService {
     return this.http.get(this.URL + '/pelicula');
   }
 
+  tickets() {
+    return this.http.get(this.URL + '/perfil');
+  }
+
   login(user) {
     return this.http.post<any>(this.URL + '/signin', user);
+  }
+
+  reservar(ticket) {
+    return this.http.post<any>(this.URL + '/perfil', ticket)
   }
 
   loggedIn(): Boolean {

@@ -5,6 +5,7 @@ const router = Router();
 
 const User = require('../models/user');
 const Film = require('../models/film')
+const Tickets = require('../models/tickets');
 const userRegister = require('../models/userRegister');
 
 // router.get('/', (req, res) => res.send('Hello world'));
@@ -25,6 +26,13 @@ router.post('/signup', async (req, res) => {
   res.status(200).json({token})
 });
 
+router.post('/perfil', async (req, res) => {
+  const {name, sala, hora, dia} = req.body
+
+  const newTicket = new Tickets({name, sala, hora, dia});
+  await newTicket.save();
+});
+
 router.post('/signin', async (req, res) => {
   // Reccibimos el usuario a logear
   const { email, password } = req.body
@@ -40,11 +48,22 @@ router.post('/signin', async (req, res) => {
   res.status(200).json({token})
 });
 
+
+
 // Ruta para mostrar las películas disponibles en cartelera
 router.get('/cartelera', async (req, res) => {
   let films = await Film.find();
   res.send(films);
 });
+
+// Ruta para mostrar los tickets disponibles en cartelera
+router.get('/perfil', async (req, res) => {
+  let tickets = await Tickets.find();
+  res.send(tickets);
+});
+
+
+
 
 // Ruta privada donde solo podrá entrar el usuario a ver sus tickets
 router.get('/tickets', verifyToken, (req, res) => {
