@@ -24,6 +24,9 @@ export class AuthService {
   cartel() {
     return this.http.get(this.URL + '/cartelera');
   }
+  pelicula() {
+    return this.http.get(this.URL + '/pelicula');
+  }
 
   login(user) {
     return this.http.post<any>(this.URL + '/signin', user);
@@ -40,9 +43,5 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/navigate']);
-  }
-
-  cartelera() {
-    return this.http.get(this.URL + 'cartelera');
   }
 }

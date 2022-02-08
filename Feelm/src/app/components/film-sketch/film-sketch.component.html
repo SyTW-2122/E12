@@ -22,45 +22,8 @@
   </div>
 
   <main>
-    <div class="cartel">
-      <img src ="../../../assets/images/expediente-warren.png">
-    </div>
-    <div class="tituloYsalas">
-      <div class="tituloPelicula">EXPEDIENTE WARREN</div>
-      <div class="tituloLine"><hr class="linea" width="80%" size="2" color="#fff"/></div>
-      <div class="salas">
-        <div class="primeraSala">
-          <div class="nombreSala">
-            SALA 4
-          </div>
-          <div class="horasO">
-            <div class="horas">
-              <div class="hora">20:45</div>
-              <div class="hora">17:30</div>
-              <div class="hora">12:30</div>
-              <div class="hora">19:00</div>
-              <div class="hora">15:25</div>
-              <div class="hora">23:00</div>
-            </div>
-          </div>
-        </div>
-        <div class="segundaSala">
-          <div class="nombreSala">
-            SALA 6
-          </div>
-          <div class="horasO">
-            <div class="horas">
-              <div class="hora">12:30</div>
-              <div class="hora">15:30</div>
-              <div class="hora">18:00</div>
-              <div class="hora">20:45</div>
-              <div class="hora">22:30</div>
-              <div class="hora">00:00</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="cartel" [innerHTML] = "imagen_ruta"></div>
+    <div class="tituloYsalas" [innerHTML] = "titulo"></div>
   </main>
 
   <div class="TrailerYSinopsis">
@@ -70,11 +33,7 @@
       </video>
     </div>
     <div class="sinopsisYreserva">
-      <div class="sinopsis">
-        <h4>Sinopsis</h4>
-
-        <p>Basada en una historia real, "Expediente Warren: The Conjuring" cuenta la escalofriante historia de cómo Ed y Lorraine Warren, investigadores renombrados en todo el mundo de los fenómenos paranormales, son llamados por una familia aterrorizada por una presencia oscura en una granja aislada.</p>
-      </div>
+      <div class="sinopsis" [innerHTML] = "sinopsis"></div>
       <div class="reservar">
         <div class="fechas">
           Elección de fecha: 

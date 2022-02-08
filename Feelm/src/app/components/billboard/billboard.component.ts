@@ -21,7 +21,7 @@ export class BillboardComponent implements OnInit {
         carteleras.forEach((cartelPelicula) => {
           cartel_pelicula = cartel_pelicula + '<div class="pelicula_y_texto">';
           cartel_pelicula = cartel_pelicula + '<div class="imagenPelicula">';
-          cartel_pelicula = cartel_pelicula + '<img src ="' + cartelPelicula.image_route + '">';
+          cartel_pelicula = cartel_pelicula + '<a href="http://localhost:4200/pelicula?id=' + cartelPelicula._id + '"><img src ="' + cartelPelicula.image_route + '"></a>';
           cartel_pelicula = cartel_pelicula + '</div>';
           cartel_pelicula = cartel_pelicula + '<div class="textoPelicula">' + cartelPelicula.name + '</div>';
           cartel_pelicula = cartel_pelicula + '</div>';
