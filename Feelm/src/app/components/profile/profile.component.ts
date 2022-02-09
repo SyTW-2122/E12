@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
             ticket = ticket + '<div class="reserva">';
             ticket = ticket + '<div class="maincontent">';
             ticket = ticket + '<div class="nombrePelicula">' + ticketN.name + '</div>';
-            ticket = ticket + '<div class="salaYhora">'+ ticketN.sala + ticketN.hora + '</div>';
+            ticket = ticket + '<div class="salaYhora">'+ ticketN.sala + ': ' + ticketN.hora + '</div>';
             ticket = ticket + '<div class="diaPelicula">' + ticketN.dia + '</div>';
             ticket = ticket + '</div>';
             ticket = ticket + '<div class="cancelarReserva"><button type="submit">Cancelar</button></div>';
